@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Finally</h1>
+    <p>Esse módulo serviu mais para explicar como o finally funcina. Ele vem em conjunto com o bloco try + catch e independente de se ocorrer um erro ou não, ele sempre será executado no fim do bloco de código</p>
+
+    <script>
+
+        try{
+            // Executado quando não há erro
+        } catch (e) {
+            // Executado quando HÁ erro
+        } finally {
+            // Sempre é executado
+        }
+
+        try{
+            console.log('Passo 1')
+            console.log('Passo 2')
+            console.log('Passo 3')
+        } catch (e) {
+            console.log('Eita, deu erro!!')
+        } finally {
+            console.log('FINALLY Eu sempre sou executado :)')
+        }
+
+        function mostraHora(data){
+            if (data && !(data instanceof Date)) {
+                throw new TypeError('Esperava instancia de Date.')
+            }
+
+            if (!data) {
+                data = new Date()
+            }
+
+            return data.toLocaleTimeString('pt-BR', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+
+        }
+
+        try {
+            const data = new Date('01-01-1970 12:58:12')
+            const hora = mostraHora(5)
+            console.log(hora) 
+        } catch (e) {
+            console.log('Deu Erro')
+        } finally {
+            console.log('Tenha um bom dia :)')
+        }
+        
+        
+
+    </script>
+</body>
+</html>

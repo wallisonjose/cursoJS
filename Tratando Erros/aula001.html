@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 01</title>
+</head>
+<body>
+    
+    <h1>Tratando erros</h1>
+    <p>Os principais comandos para tratativa de erros são:</p>
+    <ul>
+        <li>try: Que irá testar um bloco de código, ele deve ser usado em conjunto com o próximo comando</li>
+        <li>catch(error): Ele cria uma espécie de variável cujo nome fica entre parentesis que irá receber o erro caso ocorra dentro do bloco try. Além disso é possível que escolhamos a mensagem a ser exibida caso ocorra um erro a inserindo dentro do bloco catch</li>
+        <li>throw: Ela cria um erro que será exibido de acordo com a situação desejada</li>
+    </ul>
+
+    <script>
+        
+        try{
+            console.log(variavel)  
+        }catch(err){
+            console.log('Essa variável não existe!')
+            console.log(err)
+        }
+
+        function soma(x, y){
+            if (typeof x !== 'number' || typeof y !== 'number'){
+                throw new ReferenceError('x e y precisam ser números.')
+            }
+
+            return x + y
+        }
+
+        try {
+            console.log(soma(1,2))
+            console.log(soma('1',2)) 
+        } catch (error) {
+            console.log('Alguma coisa mais amigável para o usuário :)')
+        }
+        
+    </script>
+</body>
+</html>

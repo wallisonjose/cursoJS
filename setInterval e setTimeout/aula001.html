@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 001</title>
+</head>
+<body>
+    
+    <script>
+        
+        function mostrarHora(){
+            let data = new Date();
+
+            return data.toLocaleTimeString('pt-BR', {
+                hour12: false
+            })
+        }
+        
+        function funcaoDoInterval() {
+            console.log(mostrarHora())
+        }
+
+        function pararSetInterval(){
+            clearInterval(timer)
+        }
+
+        const timer = setInterval(funcaoDoInterval, 1000); 
+
+        setTimeout(pararSetInterval, 3000)
+
+        setTimeout(function(){
+            console.log('Olá, mundo!!')
+        }, 5000)
+
+        // setInterval -> Executa uma determinada função repetidas vezes em um definido espaço de tempo
+
+        // setTimeOut -> Executa uma função após um determinado tempo
+
+    </script>
+</body>
+</html>
