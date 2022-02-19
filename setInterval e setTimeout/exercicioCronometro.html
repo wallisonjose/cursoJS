@@ -5,19 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cronometro</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="main">
-       <h1>Meu Cronometro</h1>
+       <h1>Cronometro</h1>
+       
        <div id="display">
            <span id="horas">00</span><span> :</span>
            <span id="minutos">00</span><span> :</span>
            <span id="segundos">00</span>
        </div> 
        <br>
-       <button onclick="iniciar()">Iniciar</button>
-       <button onclick="parar()">Parar</button>
-       <button onclick="zerar()">Zerar</button>
+       
+       <div id="btns">   
+        <button onclick="iniciar()">Iniciar</button>
+        <button onclick="parar()">Parar</button>
+        <button onclick="zerar()">Zerar</button> 
+       </div>
+
     </div>
 
     <script>
@@ -25,6 +31,7 @@
         let segundos = document.querySelector('#segundos')
         let minutos = document.querySelector('#minutos')
         let horas = document.querySelector('#horas')
+        let display = document.querySelector('#display')
         let dSegundos = 0
         let dMinutos = 0
         let dHoras = 0
@@ -32,19 +39,23 @@
         
         function iniciar(){
             i = setInterval(cronometrar, 1000)
+            display.className = ' '
         }
 
         function parar(){
             clearInterval(i)
+            display.className = 'parar'
         }
 
         function zerar(){
+            clearInterval(i)
             dSegundos = 0
             dMinutos = 0
             dHoras = 0
             segundos.innerHTML = '00'
             minutos.innerHTML = '00'
             horas.innerHTML = '00'
+            display.className = ' '
         }
 
         let cronometrar = () => {
