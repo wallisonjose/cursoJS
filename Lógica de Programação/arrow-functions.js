@@ -13,3 +13,4 @@ let funcao2 = () => {
 }
 
 console.log(funcao2())
+
